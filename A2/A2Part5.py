@@ -27,4 +27,4 @@ def genMagSpec(x):
     for k in range(N):
     	s = np.exp(1j * 2 * np.pi * k / N * np.arange(N))
     	X = np.append(X, sum(x*np.conjugate(s)))
-    return abs(X)
+    return 20*np.log10(abs(X))
