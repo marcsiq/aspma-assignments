@@ -1,5 +1,6 @@
 ﻿from scipy.fftpack import fft
 import numpy as np
+import math
 
 """
 A3-Part-2: Optimal zero-padding
@@ -56,3 +57,20 @@ def optimalZeropad(x, fs, f):
                         x appropriately (zero-padding length to be computed). mX is (N/2)+1 samples long
     """
     ## Your code here
+    t = fs/f
+    M = len(x)
+    numperiods = int(math.ceil(M/t))
+    N = int(math.floor(numperiods * t))
+
+    hN = (N/2)+1                           
+    fftbuffer = np.zeros(N)                                
+    hM1 = int(math.floor((M+1)/2))                    
+    hM2 = int(math.floor(M/2))       
+    fftbuffer[:hM1] = x[hM2:]                              
+    fftbuffer[-hM2:] = x[:hM2]        
+    X = fft(fftbuffer) 
+
+    absX = abs(X[:hN])
+    absX[absX<np.finfo(float).eps] = np.finfo(float).eps    
+    mX = 20 * np.log10(absX) 
+    return mX    
