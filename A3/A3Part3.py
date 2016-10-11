@@ -49,3 +49,17 @@ def testRealEven(x):
         X (numpy array, possibly complex) = The M point DFT of dftbuffer 
     """
     ## Your code here
+    M = len(x)           
+    hM1 = int(math.floor((M+1)/2))                    
+    hM2 = int(math.floor(M/2))    
+    dftbuffer = np.zeros(M)   
+    dftbuffer[:hM1] = x[hM2:]                              
+    dftbuffer[-hM2:] = x[:hM2] 
+    X = fft(dftbuffer) 
+    realeven = True
+    for key,value in enumerate(X):
+        if key == X[0]:
+            pass
+        elif value != X[-key]:
+            realeven = False
+    return (realeven, dftbuffer, X)

@@ -55,8 +55,8 @@ print "-------------------"
 print "A3Part3 test 1..."
 p31 = loadTestCases.load(3,1)
 x = p31['input']['x']
-dftbuffer, X = A3Part3.testRealEven(x)
-print "x: " + str(x) 
+re, dftbuffer, X = A3Part3.testRealEven(x)
+print "real and even: " + str(re) 
 print "dftbuffer: " + str(dftbuffer) 
 print "X: " + str(X)
 print "-------------------"
@@ -64,8 +64,8 @@ print "-------------------"
 print "A3Part3 test 2..."
 p32 = loadTestCases.load(3,2)
 x = p32['input']['x']
-dftbuffer, X = A3Part3.testRealEven(x)
-print "x: " + str(x) 
+re, dftbuffer, X = A3Part3.testRealEven(x)
+print "real and even: " + str(re) 
 print "dftbuffer: " + str(dftbuffer) 
 print "X: " + str(X)
 print "-------------------"
