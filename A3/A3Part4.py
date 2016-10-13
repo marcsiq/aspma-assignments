@@ -4,6 +4,7 @@ from dftModel import dftAnal, dftSynth
 from scipy.signal import get_window
 import matplotlib.pyplot as plt
 import numpy as np
+import math
 """
 A3-Part-4: Suppressing frequency components using DFT model
 
@@ -58,14 +59,15 @@ def suppressFreqDFTmodel(x, fs, N):
     """
     M = len(x)
     w = get_window('hamming', M)
+    nBin= int(round(70/fs*N))
     outputScaleFactor = sum(w)
      
-    # compute the dft of the sound fragment
-    mX, pX = dftAnal(x, w, M)
-    mXfilt = mX.copy()
-    mXfilt[0:70] = -120
-    # compute the inverse dft of the spectrum
-    Y = dftSynth(mX, pX, M)*outputScaleFactor
-    Yfilt = dftSynth(mXfilt, pX, M)*outputScaleFactor
     ## Your code here
+    # compute the dft of the sound fragment
+    mX, pX = dftAnal(x, w, N)
+    mXfilt = mX.copy()
+    mXfilt[0:nBin] = -120
+    # compute the inverse dft of the spectrum
+    Y = dftSynth(mX, pX, N)*outputScaleFactor
+    Yfilt = dftSynth(mXfilt, pX, M)*outputScaleFactor
     return Y, Yfilt

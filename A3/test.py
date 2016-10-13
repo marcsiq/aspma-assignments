@@ -4,8 +4,8 @@ import A3Part2
 import A3Part3
 import A3Part4
 import matplotlib.pyplot as plt
-
-
+import numpy as np
+"""
 print "A3Part1 test 1..."
 p11 = loadTestCases.load(1,1)
 x = p11['input']['x']
@@ -70,19 +70,26 @@ print "real and even: " + str(re)
 print "dftbuffer: " + str(dftbuffer) 
 print "X: " + str(X)
 print "-------------------"
-
+"""
 print "A3Part4 test 1..."
 p41 = loadTestCases.load(4,1)
 x = p41['input']['x']
 fs = p41['input']['fs']
 N = p41['input']['N']
-X, Xfilt = A3Part4.suppressFreqDFTmodel(x, fs, N)
-plt.figure(5)
-plt.plot(X)
-plt.show()
+Y, Yfilt = A3Part4.suppressFreqDFTmodel(x, fs, N)
+outY = p41['output'][0]
+outYfilt = p41['output'][1]
+
+print np.array_equal(Y, outY)
+print np.array_equal(Yfilt, outYfilt)
+
 plt.figure(6)
-plt.plot(Xfilt)
-plt.show()
+plt.plot(Y)
+plt.show(block = False)
+
+plt.figure(7)
+plt.plot(Yfilt)
+plt.show(block = False)
 print "-------------------"
 
 print "A3Part4 test 2..."
@@ -91,10 +98,17 @@ x = p42['input']['x']
 fs = p42['input']['fs']
 N = p42['input']['N']
 Y, Yfilt = A3Part4.suppressFreqDFTmodel(x, fs, N)
-plt.figure(7)
-plt.plot(Y)
-plt.show()
+outY = p42['output'][0]
+outYfilt = p42['output'][1]
+
+print np.array_equal(Y, outY)
+print np.array_equal(Yfilt, outYfilt)
+
 plt.figure(8)
+plt.plot(Y)
+plt.show(block = False)
+
+plt.figure(9)
 plt.plot(Yfilt)
 plt.show()
 print "-------------------"
