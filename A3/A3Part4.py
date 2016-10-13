@@ -59,15 +59,15 @@ def suppressFreqDFTmodel(x, fs, N):
     """
     M = len(x)
     w = get_window('hamming', M)
-    nBin= int(round(70/fs*N))
+    nBin= int(math.ceil(70/fs*N))
     outputScaleFactor = sum(w)
      
     ## Your code here
     # compute the dft of the sound fragment
     mX, pX = dftAnal(x, w, N)
     mXfilt = mX.copy()
-    mXfilt[0:nBin] = -120
+    mXfilt[:nBin+1] = -120
     # compute the inverse dft of the spectrum
     Y = dftSynth(mX, pX, N)*outputScaleFactor
-    Yfilt = dftSynth(mXfilt, pX, M)*outputScaleFactor
+    Yfilt = dftSynth(mXfilt, pX, N)*outputScaleFactor
     return Y, Yfilt

@@ -5,7 +5,7 @@ import A3Part3
 import A3Part4
 import matplotlib.pyplot as plt
 import numpy as np
-"""
+
 print "A3Part1 test 1..."
 p11 = loadTestCases.load(1,1)
 x = p11['input']['x']
@@ -70,7 +70,7 @@ print "real and even: " + str(re)
 print "dftbuffer: " + str(dftbuffer) 
 print "X: " + str(X)
 print "-------------------"
-"""
+
 print "A3Part4 test 1..."
 p41 = loadTestCases.load(4,1)
 x = p41['input']['x']
@@ -82,14 +82,6 @@ outYfilt = p41['output'][1]
 
 print np.array_equal(Y, outY)
 print np.array_equal(Yfilt, outYfilt)
-
-plt.figure(6)
-plt.plot(Y)
-plt.show(block = False)
-
-plt.figure(7)
-plt.plot(Yfilt)
-plt.show(block = False)
 print "-------------------"
 
 print "A3Part4 test 2..."
@@ -103,12 +95,4 @@ outYfilt = p42['output'][1]
 
 print np.array_equal(Y, outY)
 print np.array_equal(Yfilt, outYfilt)
-
-plt.figure(8)
-plt.plot(Y)
-plt.show(block = False)
-
-plt.figure(9)
-plt.plot(Yfilt)
-plt.show()
 print "-------------------"

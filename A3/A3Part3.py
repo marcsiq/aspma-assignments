@@ -57,9 +57,10 @@ def testRealEven(x):
     dftbuffer[-hM2:] = x[:hM2] 
     X = fft(dftbuffer) 
     realeven = True
-    for key,value in enumerate(X):
-        if key == X[0]:
-            pass
-        elif value != X[-key]:
-            realeven = False
-    return (realeven, dftbuffer, X)
+
+    real = np.real(X)[np.arange(1,hM1)] == np.real(X)[np.arange(M-1,hM2,-1)]
+    imag = np.imag(X[1:M-2]) < 1.0e-6
+
+    realeven = sum(is_real == False) + sum(is_imag == False) == 0
+    
+    return (bool(realeven), dftbuffer, X)
