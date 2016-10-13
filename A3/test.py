@@ -2,6 +2,7 @@ import loadTestCases
 import A3Part1
 import A3Part2
 import A3Part3
+import A3Part4
 import matplotlib.pyplot as plt
 
 
@@ -68,4 +69,32 @@ re, dftbuffer, X = A3Part3.testRealEven(x)
 print "real and even: " + str(re) 
 print "dftbuffer: " + str(dftbuffer) 
 print "X: " + str(X)
+print "-------------------"
+
+print "A3Part4 test 1..."
+p41 = loadTestCases.load(4,1)
+x = p41['input']['x']
+fs = p41['input']['fs']
+N = p41['input']['N']
+X, Xfilt = A3Part4.suppressFreqDFTmodel(x, fs, N)
+plt.figure(5)
+plt.plot(X)
+plt.show()
+plt.figure(6)
+plt.plot(Xfilt)
+plt.show()
+print "-------------------"
+
+print "A3Part4 test 2..."
+p42 = loadTestCases.load(4,2)
+x = p42['input']['x']
+fs = p42['input']['fs']
+N = p42['input']['N']
+Y, Yfilt = A3Part4.suppressFreqDFTmodel(x, fs, N)
+plt.figure(7)
+plt.plot(Y)
+plt.show()
+plt.figure(8)
+plt.plot(Yfilt)
+plt.show()
 print "-------------------"
