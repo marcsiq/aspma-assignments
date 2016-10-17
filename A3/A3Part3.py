@@ -61,6 +61,6 @@ def testRealEven(x):
     real = np.real(X)[np.arange(1,hM1)] == np.real(X)[np.arange(M-1,hM2,-1)]
     imag = np.imag(X[1:M-2]) < 1.0e-6
 
-    realeven = sum(is_real == False) + sum(is_imag == False) == 0
+    realeven = sum(real == False) + sum(imag == False) == 0
     
     return (bool(realeven), dftbuffer, X)
