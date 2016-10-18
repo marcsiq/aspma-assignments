@@ -1,10 +1,10 @@
 import loadTestCases
 import A4Part1
 import A4Part2
+import A4Part3
 
 import matplotlib.pyplot as plt
 import numpy as np
-
 
 print "A4Part1 test 1..."
 p11 = loadTestCases.load(1,1)
@@ -70,4 +70,37 @@ N = p23['input']['N']
 H = p23['input']['H']
 SNR1, SNR2 = A4Part2.computeSNR(inputFile, window, M, N, H)
 print SNR1, SNR2
+print "-------------------"
+
+print "A4Part3 test 1..."
+p31 = loadTestCases.load(3,1)
+inputFile = p31['input']['inputFile']
+window = p31['input']['window']
+M = p31['input']['M']
+N = p31['input']['N']
+H = p31['input']['H']
+out = p31['output']
+envs = A4Part3.computeEngEnv(inputFile, window, M, N, H)
+print "-------------------"
+
+print "A4Part3 test 2..."
+p32 = loadTestCases.load(3,2)
+inputFile = p32['input']['inputFile']
+window = p32['input']['window']
+M = p32['input']['M']
+N = p32['input']['N']
+H = p32['input']['H']
+out = p32['output']
+envs = A4Part3.computeEngEnv(inputFile, window, M, N, H)
+print "-------------------"
+
+print "A4Part3 test 3..."
+p33 = loadTestCases.load(3,3)
+inputFile = p33['input']['inputFile']
+window = p33['input']['window']
+M = p33['input']['M']
+N = p33['input']['N']
+H = p33['input']['H']
+out = p33['output']
+envs = A4Part3.computeEngEnv(inputFile, window, M, N, H)
 print "-------------------"

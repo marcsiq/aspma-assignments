@@ -82,4 +82,42 @@ def computeEngEnv(inputFile, window, M, N, H):
     """
     
     ### your code here
+        
+    fs, x = UF.wavread(inputFile)
+    bin3000 = int(np.ceil(3000.0 * N / fs))
+    bin10000 = int(np.ceil(10000.0 * N / fs))
+    w = get_window(window, M)
     
+    mX, pX = stft.stftAnal(x, w, N, H)
+    low = np.transpose(np.transpose(mX)[1:bin3000])
+    high = np.transpose(np.transpose(mX)[bin3000:bin10000])
+
+    def energy(signal):
+        signal_lineal = pow(10, (signal / 20))
+        energy_signal_lineal = np.sum(pow(np.abs(signal_lineal), 2), axis=1)
+        e = 10 * np.log10(energy_signal_lineal)
+        return e
+
+    e_low = energy(low)
+    e_high = energy(high)
+    
+
+    envs = np.array([e_low, e_high])
+    envs = np.transpose(envs)
+    
+    # draw graph
+    plt.figure(1)
+
+    plt.subplot(211)
+    plt.pcolormesh(np.transpose(mX))
+    plt.autoscale(tight=True)
+
+    plt.subplot(212)
+    plt.plot(e_low, color="blue")
+    plt.plot(e_high, color="red")
+    plt.autoscale(tight=True)
+
+    plt.tight_layout()
+    plt.show()
+    
+    return envs
