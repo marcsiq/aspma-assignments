@@ -2,6 +2,8 @@ import soundDownload
 import soundAnalysis
 import json
 import heapq
+import essentia_functions
+import essentia
 
 #VARIABLE DEFINITION
 tdir = "/home/msiquier/SMC/sms-tools/workspace/A10/sounds"							#output directory
@@ -21,7 +23,7 @@ query = [("violin", "single-note"),													#query names and tags
 
 nQueries = 20																		#number of queries for query name
 nRepetitions = 10																	#number of repetitions for each cluster
-nResults = 10																		#number of best results to output
+nResults = 1																		#number of best results to output
 nDescriptors = len(descriptorMapping)												#length of descriptors list
 results_file_name = "results/output"												#base file_name
 file_name = results_file_name + "_" +str(nDescriptors) + ".txt" 					#enhanced file_name
@@ -87,9 +89,14 @@ def main():
 #	download_sounds()
 #	test_all_pair_scatter_plot()
 #	get_results_by_descriptors() #15 hours for 17 descriptors
-	bes = get_k_best_results(nResults)
-	print bes
-
+#	best = get_k_best_results(nResults)
+#	essentia_functions.extractFeatures(tdir)
+	data = essentia_functions.fetchEssentiaFeatures(tdir)
+	for c in data:
+		for s in data[c]:
+			pool = essentia.Pool()
+			pool = data[c][s]['feature']
+			print pool['lowLevel.mfcc.mean']
 
 if __name__ == "__main__":
     main()
