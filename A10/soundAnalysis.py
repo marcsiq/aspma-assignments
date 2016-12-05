@@ -265,7 +265,7 @@ def clusterSounds(targetDir, nCluster = -1, descInput=[]):
     for sname in dataDetails[cname].keys():
       ftrArr.append(convFtrDict2List(dataDetails[cname][sname]['feature'])[descInput])
       infoArr.append([sname, cname])
-  
+
   ftrArr = np.array(ftrArr)
   infoArr = np.array(infoArr)
   
@@ -321,7 +321,7 @@ def fetchDataDetails(inputDir, descExt = '.json'):
   dataDetails = {}
   for path, dname, fnames  in os.walk(inputDir):
     for fname in fnames:
-      if descExt in fname.lower():
+      if descExt in fname.lower() and fname.lower() != "essentia_features.json":
         remain, rname, cname, sname = path.split('/')[:-3], path.split('/')[-3], path.split('/')[-2], path.split('/')[-1]
         if not dataDetails.has_key(cname):
           dataDetails[cname]={}

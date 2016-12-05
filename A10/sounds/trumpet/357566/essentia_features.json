@@ -16,7 +16,7 @@
     },
     "barkbands_spread": {
         "mean": 13.6197061539,
-        "var": 280.658843994
+        "var": 280.658813477
     },
     "dissonance": {
         "mean": 0.404649406672,
@@ -60,7 +60,7 @@
     },
     "spectral_crest": {
         "mean": 7.98809766769,
-        "var": 16.3881664276
+        "var": 16.388168335
     },
     "spectral_decrease": {
         "mean": -2.62394905803e-09,
@@ -184,7 +184,7 @@
 "sfx": {
     "inharmonicity": {
         "mean": 0.0345276258886,
-        "var": 0.00348762981594
+        "var": 0.00348762935027
     },
     "oddtoevenharmonicenergyratio": {
         "mean": 0.988578557968,

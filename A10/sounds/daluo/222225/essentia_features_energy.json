@@ -1,0 +1,61 @@
+{
+"metadata": {
+    "version": {
+        "essentia": "2.1-dev"
+    }
+},
+"lowLevel": {
+    "barkbands_kurtosis": {
+        "mean": 2.22035312653,
+        "var": 0
+    },
+    "dissonance": {
+        "mean": 0.291906654835,
+        "var": 0
+    },
+    "hfc": {
+        "mean": 6.87342214584,
+        "var": 0
+    },
+    "spectral_centroid": {
+        "mean": 678.020385742,
+        "var": 0
+    },
+    "spectral_complexity": {
+        "mean": 6,
+        "var": 0
+    },
+    "spectral_crest": {
+        "mean": 17.3712692261,
+        "var": 0
+    },
+    "spectral_energyband_high": {
+        "mean": 6.05784720165e-08,
+        "var": 0
+    },
+    "spectral_energyband_low": {
+        "mean": 9.54189908953e-06,
+        "var": 0
+    },
+    "spectral_kurtosis": {
+        "mean": 158.817687988,
+        "var": 0
+    },
+    "spectral_rolloff": {
+        "mean": 775.1953125,
+        "var": 0
+    },
+    "spectral_strongpeak": {
+        "mean": 1.79731488228,
+        "var": 0
+    },
+    "mfcc": [[-863.306335449, 222.183288574, -12.6087646484, -47.5034561157, -22.1157798767, -36.8020439148, -17.7743225098, 10.8088626862, 6.29519271851, 0.551795959473, -14.2371578217, -40.4948234558, -37.5459098816]],
+    "sccoeffs": [[-0.454427480698, -0.807995796204, -0.493880748749, -0.754054963589, -0.738420903683, -0.844429552555]]
+},
+"sfx": {
+    "inharmonicity": {
+        "mean": 2.94674955512e-05,
+        "var": 0
+    }
+}
+}
